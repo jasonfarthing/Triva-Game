@@ -8,19 +8,19 @@ h1 {
   font-size: 60px;
 }
 .lead{
-  color: rgb(14, 25, 128);
+  color: rgb(38, 39, 39);
   font-size: 26px;
+  
+}
+.btn-default:hover{
+  background-color: rgb(93, 159, 235);
+  color: white;
 }
 
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
 
 /* Custom default button */
 .btn-default,
-.btn-default:hover,
+/* .btn-default:hover, */
 .btn-default:focus {
   color: rgb(46, 31, 31);
   text-shadow: none; /* Prevent inheritance from `body` */
@@ -30,7 +30,7 @@ a:hover {
 #inner-cover {
   padding: 20px;
   background-color: rgba(236, 227, 227, 0.342);
-  border: 1px rgb(14, 25, 128) solid;
+  /* border: 1px rgb(14, 25, 128) solid; */
   
 }
 /* #description {
