@@ -1,68 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
-    <title>Trivia Game</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Trivia Game</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css" type="text/css">
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
 
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
 
-  <body>
+</head>
 
-    <div class="site-wrapper">
+<body>
 
-      <div class="site-wrapper-inner">
+  <div class="container text-center">
 
-        <div class="cover-container">
+    <div class="row">
 
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+      <div class="col-md-12">
 
-          <div class="inner cover">
-            <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Learn more</a>
+        <div class="inner-cover" id="inner-cover">
+          <h1 class="cover-heading" id="title">Solar System Trivia.</h1>
+          <div class="text-center">
+            <p class="lead" class="text-center" id="description">See how much you know about our Solar System.
+              <br>You will have 45 seconds to answer 8 questions. Click the button to start.
             </p>
           </div>
+          <br>
+          <br>
+          <p class="lead">
+            <a href="#" class="btn btn-lg btn-default" id="startButton">Blast OFF!
+            </a>
+          </p>
+          <div>
+            <h2 id="countdown-timer"></h2>
+          </div>
+        </div>
 
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        <div class="row" id="content">
+          <div class="col-md-6 col-md-offset-3" id="questions">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Here are your questions, Good Luck!</h3>
+              </div>
+              <div class="panel-body">
+                <div class="text-center">
+                  <h2 id="Q1">Question 1:</h2>
+                  <p>How many planets are in our Solar System?</p>
+                  <form>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Nine</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Six</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Seven</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio" id="correct">Eight</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="text-center">
+                  <h2 id="Q2">Question 2:</h2>
+                  <p>What is the largest planet in our solar system?</p>
+                  <form>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Saturn</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Earth</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio" id="correct">Jupiter</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">The Sun</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="text-center">
+                  <h2 id="Q3">Question 3:</h2>
+                  <p>What feature separates the inner and outer solar system?
+                  </p>
+                  <form>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">A Line</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">The Sun</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">The Moon</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio" id="correct">Asteroid Belt</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="text-center">
+                  <h2 id="Q4">Question 4:</h2>
+                  <p>What are comets made of?
+                  </p>
+                  <form>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Magic</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Solar Flares</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio" id="correct">Dirty Ice</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Sparkles</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="text-center">
+                  <h2 id="Q5">Question 5:</h2>
+                  <p>Which is the smallest planet in the solar system?
+                  </p>
+                  <form>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Earth</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio" id="correct">Mercury</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Mars</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Pluto</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="text-center">
+                  <h2 id="Q6">Question 6:</h2>
+                  <p>Venus' atmosphere is primarily made up of what gas?</p>
+                  <form>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Carbon Monoxide</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Oxygen</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio" id="correct">Carbon Dioxide</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Argon</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="text-center">
+                  <h2 id="Q7">Question 7:</h2>
+                  <p>Saturn is famous for its ________ that rotate around it.</p>
+                  <form>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Moons</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Asteroids</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio" id="correct">Rings</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Comets</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="text-center">
+                  <h2 id="Q8">Question 8:</h2>
+                  <p>Jupiter has a ________ in its atmosphere but no solid surface.</p>
+                  <form>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio" id="correct">Hurricane</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Tornado</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Volcano</label>
+                    </div>
+                    <div class="radio text-left">
+                      <label>
+                        <input type="radio" name="optradio">Lake</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+
             </div>
           </div>
 
@@ -72,13 +259,15 @@
 
     </div>
 
-    <!-- Bootstrap core JavaScript
+  </div>
+
+  <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="assets/javascript/app.js">
+  </script>
+
+</body>
+
 </html>
